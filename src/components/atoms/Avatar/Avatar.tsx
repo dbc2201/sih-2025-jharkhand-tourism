@@ -5,7 +5,7 @@ import type {AvatarProps} from './AvatarProps';
  * @param props - Component props
  * @returns Avatar component
  */
-const Avatar = ({
+export const Avatar = ({
 					src = "https://placehold.co/64x64?text=DB",
 					alt = 'Avatar',
 					size = 'md',
@@ -68,5 +68,3 @@ const Avatar = ({
 		</div>
 	);
 };
-
-export default Avatar;

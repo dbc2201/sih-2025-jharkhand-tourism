@@ -6,7 +6,7 @@ import type { BadgeProps } from './BadgeProps';
  * @param props - Component props
  * @returns Badge component
  */
-const Badge = ({
+export const Badge = ({
 	children,
 	size = 'md',
 	variant,
@@ -58,6 +58,3 @@ const Badge = ({
 		</span>
 	);
 };
-
-export default Badge;
-export type { BadgeProps, BadgeSize, BadgeVariant, BadgeStyle } from './BadgeProps';
