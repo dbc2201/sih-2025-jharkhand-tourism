@@ -11,7 +11,7 @@
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
 		"patch": "npx patch-package",
-		"major": "npx major ",
+		"major": "npx major --open ",
 		"minor": "npx minor --open --host "
 	},
 	"dependencies": {
