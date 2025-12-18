@@ -1,8 +1,7 @@
 import React from 'react';
-import { ReviewCardProps } from './ReviewCardProps';
+import type { ReviewCardProps } from './ReviewCardProps';
 import { Avatar } from '../../atoms/Avatar/Avatar';
 import { Rating } from '../../atoms/Rating/Rating';
-import { TextDisplay } from '../../atoms/TextDisplay/TextDisplay';
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({ author, rating, content, date }) => {
 	return (
