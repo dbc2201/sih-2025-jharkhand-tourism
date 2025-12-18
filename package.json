@@ -9,7 +9,10 @@
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"Patch" : "npm version patch",
+	"Minor" : "npm version minor",
+	"Major" : "npm version major"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.18",
