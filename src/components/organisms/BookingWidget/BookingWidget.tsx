@@ -36,7 +36,7 @@ export const BookingWidget = ({
 	// Form state
 	const [checkIn, setCheckIn] = useState('');
 	const [checkOut, setCheckOut] = useState('');
-	const [guests, setGuests] = useState({ adults: 1, children: 0, infants: 0 });
+	const [guests, setGuests] = useState({ adults: 1, children: 0 });
 	const [showGuestSelector, setShowGuestSelector] = useState(false);
 
 	// Calculate totals
@@ -125,7 +125,6 @@ export const BookingWidget = ({
 							</div>
 							<div className="mt-1">
 								{totalGuests} {totalGuests === 1 ? 'guest' : 'guests'}
-								{guests.infants > 0 && `, ${guests.infants} infant${guests.infants > 1 ? 's' : ''}`}
 							</div>
 						</div>
 						<Icon
@@ -140,7 +139,7 @@ export const BookingWidget = ({
 							<GuestSelector
 								value={guests}
 								onChange={setGuests}
-								maxGuests={maxGuests}
+								maxAdults={maxGuests}
 							/>
 							<Button
 								style="ghost"

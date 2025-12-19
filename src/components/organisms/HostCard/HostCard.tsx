@@ -2,7 +2,6 @@ import { Avatar } from '../../atoms/Avatar';
 import { Badge } from '../../atoms/Badge';
 import { Button } from '../../atoms/Button';
 import { Icon } from '../../atoms/Icon';
-import { Rating } from '../../atoms/Rating';
 import type { HostCardProps } from './HostCardProps';
 
 /**
@@ -80,7 +79,7 @@ export const HostCard = ({
 						<div className="text-center">
 							<div className="font-bold text-lg flex items-center justify-center gap-1">
 								{rating.toFixed(1)}
-								<Icon name="star" size="sm" className="text-warning" filled />
+								<Icon name="star" size="sm" className="text-warning" fill />
 							</div>
 							<div className="text-xs text-base-content/60">Rating</div>
 						</div>

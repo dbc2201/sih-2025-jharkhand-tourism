@@ -1,22 +1,14 @@
-import { Button } from '../../atoms/Button';
 import { Icon } from '../../atoms/Icon';
 import { Price } from '../../atoms/Price';
 import type { MapViewProps, MapMarker } from './MapViewProps';
 
 // Default center (Ranchi, Jharkhand)
 const DEFAULT_CENTER = { lat: 23.3441, lng: 85.3096 };
-const DEFAULT_ZOOM = 12;
 
 /**
- * Generate Google Maps static image URL
+ * Generate OpenStreetMap embed URL
  */
-const getStaticMapUrl = (
-	lat: number,
-	lng: number,
-	zoom: number,
-	width: number,
-	height: number
-): string => {
+const getStaticMapUrl = (lat: number, lng: number): string => {
 	// Using OpenStreetMap static tiles as a placeholder
 	// In production, you would use Google Maps Static API with an API key
 	return `https://www.openstreetmap.org/export/embed.html?bbox=${lng - 0.1}%2C${lat - 0.05}%2C${lng + 0.1}%2C${lat + 0.05}&layer=mapnik&marker=${lat}%2C${lng}`;
@@ -40,7 +32,6 @@ const getGoogleMapsUrl = (lat: number, lng: number, name?: string): string => {
  */
 export const MapView = ({
 	center = DEFAULT_CENTER,
-	zoom = DEFAULT_ZOOM,
 	markers = [],
 	height = '300px',
 	onMarkerClick,
@@ -61,7 +52,7 @@ export const MapView = ({
 			>
 				{/* Static Map Image/Embed */}
 				<iframe
-					src={getStaticMapUrl(center.lat, center.lng, zoom, 600, 300)}
+					src={getStaticMapUrl(center.lat, center.lng)}
 					className="w-full h-full border-0"
 					title="Location Map"
 					loading="lazy"

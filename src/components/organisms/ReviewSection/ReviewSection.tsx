@@ -43,7 +43,7 @@ export const ReviewSection = ({
 		<section className={`space-y-6 ${className}`.trim()}>
 			{/* Section Header */}
 			<div className="flex items-center gap-2">
-				<Icon name="star" size="md" className="text-warning" filled />
+				<Icon name="star" size="md" className="text-warning" fill />
 				<h2 className="font-heading text-2xl font-bold">
 					{averageRating.toFixed(1)} · {totalCount} review{totalCount !== 1 ? 's' : ''}
 				</h2>
@@ -74,7 +74,7 @@ export const ReviewSection = ({
 					{Array.from({ length: initialCount }).map((_, i) => (
 						<div key={i} className="space-y-3">
 							<div className="flex items-center gap-3">
-								<Skeleton variant="circle" size="md" />
+								<Skeleton shape="circle" width="w-12" height="h-12" />
 								<div className="space-y-1">
 									<Skeleton variant="text" className="w-24 h-4" />
 									<Skeleton variant="text" className="w-16 h-3" />
@@ -91,7 +91,7 @@ export const ReviewSection = ({
 						<ReviewCard
 							key={review.id}
 							author={review.author}
-							avatar={review.avatar}
+							avatarSrc={review.avatar}
 							rating={review.rating}
 							content={review.content}
 							date={review.date}

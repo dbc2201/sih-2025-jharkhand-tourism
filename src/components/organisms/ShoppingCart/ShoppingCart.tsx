@@ -3,7 +3,7 @@ import { Button } from '../../atoms/Button';
 import { Icon } from '../../atoms/Icon';
 import { Price } from '../../atoms/Price';
 import { CartItem as CartItemMolecule } from '../../molecules/CartItem';
-import type { ShoppingCartProps, CartItem } from './ShoppingCartProps';
+import type { ShoppingCartProps } from './ShoppingCartProps';
 
 /**
  * ShoppingCart organism for cart drawer/modal
@@ -15,7 +15,6 @@ import type { ShoppingCartProps, CartItem } from './ShoppingCartProps';
  */
 export const ShoppingCart = ({
 	items,
-	isOpen = true,
 	onClose,
 	onRemove,
 	onUpdateQuantity,
@@ -83,15 +82,15 @@ export const ShoppingCart = ({
 				{items.map((item) => (
 					<CartItemMolecule
 						key={item.id}
-						id={item.id}
-						name={item.name}
-						image={item.image}
-						price={item.price}
+						product={{
+							id: item.id,
+							title: item.name,
+							image: item.image || '',
+							price: item.price
+						}}
 						quantity={item.quantity}
-						maxQuantity={item.maxQuantity}
-						variant={item.variant}
 						onRemove={() => onRemove?.(item.id)}
-						onUpdateQuantity={(qty) => onUpdateQuantity?.(item.id, qty)}
+						onQuantityChange={(qty: number) => onUpdateQuantity?.(item.id, qty)}
 					/>
 				))}
 			</div>
