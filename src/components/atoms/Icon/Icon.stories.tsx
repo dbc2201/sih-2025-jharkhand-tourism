@@ -8,6 +8,9 @@ const meta = {
 		layout: 'centered',
 	},
 	tags: ['autodocs'],
+	args: {
+		name: 'home',
+	},
 	argTypes: {
 		name: {
 			control: 'text',
@@ -52,15 +55,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Basic Icon
-export const Default: Story = {
-	args: {
-		name: 'home',
-	},
-};
+export const Default: Story = {};
 
 // Icon Sizes
 export const Sizes: Story = {
-	args: {},
 	render: () => (
 		<div className="flex items-center gap-4">
 			<Icon name="star" size="xs" />
@@ -76,7 +74,6 @@ export const Sizes: Story = {
 
 // Icon Variants
 export const Variants: Story = {
-	args: {},
 	render: () => (
 		<div className="flex items-center gap-4">
 			<div className="flex flex-col items-center gap-2">
@@ -97,7 +94,6 @@ export const Variants: Story = {
 
 // Icon Colors
 export const Colors: Story = {
-	args: {},
 	render: () => (
 		<div className="flex flex-wrap gap-3">
 			<Icon name="palette" color="primary" size="lg" />
@@ -114,7 +110,6 @@ export const Colors: Story = {
 
 // Filled vs Outlined
 export const FilledVsOutlined: Story = {
-	args: {},
 	render: () => (
 		<div className="flex items-center gap-8">
 			<div className="flex flex-col items-center gap-2">
@@ -131,7 +126,6 @@ export const FilledVsOutlined: Story = {
 
 // Font Weight Variations
 export const Weights: Story = {
-	args: {},
 	render: () => (
 		<div className="flex items-center gap-4">
 			<div className="flex flex-col items-center gap-2">
@@ -168,7 +162,6 @@ export const Weights: Story = {
 
 // Common Icons Gallery
 export const CommonIcons: Story = {
-	args: {},
 	render: () => (
 		<div className="grid grid-cols-6 gap-6">
 			{[
@@ -214,7 +207,6 @@ export const CommonIcons: Story = {
 
 // Icons in Buttons
 export const InButtons: Story = {
-	args: {},
 	render: () => (
 		<div className="flex flex-wrap gap-2">
 			<button className="btn btn-primary">
@@ -245,7 +237,6 @@ export const InButtons: Story = {
 
 // Interactive Icons
 export const Interactive: Story = {
-	args: {},
 	render: () => (
 		<div className="flex items-center gap-4">
 			<Icon
@@ -276,7 +267,6 @@ export const Interactive: Story = {
 
 // Icon with Text
 export const WithText: Story = {
-	args: {},
 	render: () => (
 		<div className="flex flex-col gap-4">
 			<div className="flex items-center gap-2">
@@ -301,7 +291,6 @@ export const WithText: Story = {
 
 // Grade Variations (Fine-tuning)
 export const Grades: Story = {
-	args: {},
 	render: () => (
 		<div className="flex items-center gap-4">
 			<div className="flex flex-col items-center gap-2">
