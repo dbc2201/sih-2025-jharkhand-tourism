@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 import { MemoryRouter } from 'react-router';
+import { ToastProvider } from '../src/context/ToastContext';
 import '../src/index.css'; // Import global styles
 
 const preview: Preview = {
@@ -35,10 +36,12 @@ const preview: Preview = {
         }
     },
 	decorators: [
-		// Wrap all stories with MemoryRouter for React Router context
+		// Wrap all stories with MemoryRouter for React Router context and ToastProvider for toast notifications
 		(Story) => (
 			<MemoryRouter>
-				<Story />
+				<ToastProvider>
+					<Story />
+				</ToastProvider>
 			</MemoryRouter>
 		),
 	],

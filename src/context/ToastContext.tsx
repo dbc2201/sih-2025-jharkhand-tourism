@@ -7,7 +7,7 @@ interface ToastState {
 }
 
 type ToastAction =
-	| { type: 'ADD_TOAST'; payload: ToastItem }
+	| { type: 'ADD_TOAST'; payload: ToastItem; maxToasts: number }
 	| { type: 'REMOVE_TOAST'; payload: string };
 
 interface ToastContextType {
@@ -25,11 +25,17 @@ const ToastContext = createContext<ToastContextType | null>(null);
 
 const toastReducer = (state: ToastState, action: ToastAction): ToastState => {
 	switch (action.type) {
-		case 'ADD_TOAST':
+		case 'ADD_TOAST': {
+			let toasts = state.toasts;
+			// Remove oldest toast if we've reached the limit
+			if (toasts.length >= action.maxToasts) {
+				toasts = toasts.slice(1);
+			}
 			return {
 				...state,
-				toasts: [...state.toasts, action.payload],
+				toasts: [...toasts, action.payload],
 			};
+		}
 		case 'REMOVE_TOAST':
 			return {
 				...state,
@@ -75,14 +81,9 @@ export const ToastProvider = ({
 				...options,
 			};
 
-			// Remove oldest toast if we've reached the limit
-			if (state.toasts.length >= maxToasts) {
-				dispatch({ type: 'REMOVE_TOAST', payload: state.toasts[0].id });
-			}
-
-			dispatch({ type: 'ADD_TOAST', payload: toast });
+			dispatch({ type: 'ADD_TOAST', payload: toast, maxToasts });
 		},
-		[defaultPosition, defaultDuration, maxToasts, state.toasts]
+		[defaultPosition, defaultDuration, maxToasts]
 	);
 
 	const showInfo = useCallback(
